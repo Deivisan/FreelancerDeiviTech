@@ -14,7 +14,7 @@ Site profissional de serviços freelancer em tecnologia, desenvolvimento web, au
 
 ## ✨ Funcionalidades
 
-### 🧮 Calculadora de Preços Interativa
+### 🧮 Calculadora Interativa
 - Seleção de serviços dinâmica
 - Cálculo automático com extras
 - Integração direta com WhatsApp
@@ -22,14 +22,14 @@ Site profissional de serviços freelancer em tecnologia, desenvolvimento web, au
 
 ### 💼 Serviços Oferecidos
 
-| Categoria                 | Preço             | Descrição                     |
-| ------------------------- | ----------------- | ----------------------------- |
-| **Desenvolvimento Web**   | R$ 500 - R$ 4.000 | Sites modernos e responsivos  |
-| **Automação Python**      | R$ 200 - R$ 1.500 | Scripts personalizados        |
-| **Formatação & Hardware** | R$ 50 - R$ 150    | Manutenção e otimização       |
-| **Consultoria Tech**      | R$ 80 - R$ 200/h  | Orientação estratégica        |
-| **Suporte Técnico**       | R$ 50 - R$ 120    | Assistência remota/presencial |
-| **Treinamentos**          | R$ 100 - R$ 300   | Capacitação personalizada     |
+| Categoria                 | Descrição                     |
+| ------------------------- | ----------------------------- |
+| **Desenvolvimento Web**   | Sites modernos e responsivos  |
+| **Automação Python**      | Scripts personalizados        |
+| **Formatação & Hardware** | Manutenção e otimização       |
+| **Consultoria Tech**      | Orientação estratégica        |
+| **Suporte Técnico**       | Assistência remota/presencial |
+| **Treinamentos**          | Capacitação personalizada     |
 
 ### 🎨 Portfolio Integrado
 - Links para projetos reais funcionais
@@ -63,7 +63,7 @@ Site profissional de serviços freelancer em tecnologia, desenvolvimento web, au
 ## 🎯 Seções Principais
 
 1. **Header Hero** - Apresentação com CTAs
-2. **Serviços** - Cards detalhados com preços
+2. **Serviços** - Cards detalhados
 3. **Calculadora** - Ferramenta interativa
 4. **Portfolio** - Projetos realizados
 5. **Processo** - Como trabalhamos
@@ -96,7 +96,7 @@ Site profissional de serviços freelancer em tecnologia, desenvolvimento web, au
 
 ### v1.0 (07/07/2025)
 - ✅ Site completo funcional
-- ✅ Calculadora de preços
+- ✅ Calculadora interativa
 - ✅ Portfolio integrado
 - ✅ Links funcionais
 - ✅ Deploy GitHub Pages
