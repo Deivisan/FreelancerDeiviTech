@@ -1,67 +1,982 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FreelancerDeiviTech - Soluções Digitais Profissionais</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-        .hero-bg { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%); }
-        .service-card { transition: all 0.3s ease; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25); }
-        .gradient-text { 
-            background: linear-gradient(45deg, #3b82f6, #06b6d4, #10b981);
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      .hero-bg {
+        background: linear-gradient(
+          135deg,
+          #1e40af 0%,
+          #3b82f6 50%,
+          #06b6d4 100%
+        );
+      }
+      .service-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+      }
+      .gradient-text {
+        background: linear-gradient(45deg, #3b82f6, #06b6d4, #10b981);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0px);
         }
-        .floating { animation: floating 3s ease-in-out infinite; }
-        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .calculator-card {
+        background: linear-gradient(135deg, #1e293b, #334155);
+        border: 1px solid #475569;
+      }
+      .price-tag {
+        background: linear-gradient(45deg, #10b981, #059669);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
     </style>
-</head>
-<body class="bg-gray-900 text-white">
-    <- Status real de cada Header -->
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- Header -->
     <header class="hero-bg py-20 relative overflow-hidden">
-        <div class="container mx-auto px-6 text-center">
-            <div class="floating">
-                <i class="fas fa-rocket text-6xl text-white mb-6"></i>
-            </div>
-            <h1 class="text-5xl font-bold mb-4">
-                <span class="text-white">Freelancer</span>
-                <span class="gradient-text">DeiviTech</span>
-            </h1>
-            <p class="text-2xl mb-8 opacity-90">Soluções Digitais • Desenvolvimento Web • Automação</p>
-            <p class="text-lg mb-8 opacity-75 max-w-2xl mx-auto">
-                Transforme suas ideias em realidade digital com soluções profissionais, preços transparentes e qualidade garantida.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#servicos" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-all">
-                    <i class="fas fa-briefcase mr-2"></i>Ver Serviços
-                </a>
-                <a href="#calculadora" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-all">
-                    <i class="fas fa-calculator mr-2"></i>Calcular Preço
-                </a>
-                <a href="https://wa.me/5575981231019?text=Olá! Vi seu portfolio FreelancerDeiviTech e gostaria de um orçamento." target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-bold transition-all">
-                    <i class="fab fa-whatsapp mr-2"></i>Contato Direto
-                </a>
-            </div>
+      <div class="absolute inset-0 bg-black opacity-20"></div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center">
+          <div class="floating">
+            <i class="fas fa-rocket text-6xl text-white mb-6"></i>
+          </div>
+          <h1 class="text-5xl font-bold mb-4">
+            <span class="text-white">Freelancer</span>
+            <span class="gradient-text">DeiviTech</span>
+          </h1>
+          <p class="text-2xl mb-8 opacity-90">
+            Soluções Digitais • Desenvolvimento Web • Automação
+          </p>
+          <p class="text-lg mb-8 opacity-75 max-w-2xl mx-auto">
+            Transforme suas ideias em realidade digital com soluções
+            profissionais, preços transparentes e qualidade garantida.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="#servicos"
+              class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-all"
+            >
+              <i class="fas fa-briefcase mr-2"></i>Ver Serviços
+            </a>
+            <a
+              href="#calculadora"
+              class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-all"
+            >
+              <i class="fas fa-calculator mr-2"></i>Calcular Preço
+            </a>
+            <a
+              href="https://wa.me/5575981231019?text=Olá! Vi seu portfolio FreelancerDeiviTech e gostaria de um orçamento."
+              target="_blank"
+              class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-bold transition-all"
+            >
+              <i class="fab fa-whatsapp mr-2"></i>Contato Direto
+            </a>
+          </div>
         </div>
+      </div>
     </header>
 
-    <- Status real de cada Test Section -->
-    <section class="py-16 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-8">🚀 FreelancerDeiviTech Online!</h2>
-            <p class="text-xl mb-4">Site criado com sucesso e pronto para deploy!</p>
-            <a href="https://deivisan.github.io/" class="text-blue-400 hover:text-blue-300">← Voltar ao Portfolio Principal</a>
+    <!-- Services Section -->
+    <section id="servicos" class="py-16">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">
+          <span class="gradient-text">Serviços Profissionais</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Desenvolvimento Web -->
+          <div class="service-card bg-gray-800 p-8 rounded-xl">
+            <div class="text-center">
+              <i class="fas fa-globe text-4xl text-blue-400 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Desenvolvimento Web</h3>
+              <div
+                class="price-tag text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block"
+              >
+                R$ 150 - R$ 800
+              </div>
+              <p class="text-gray-300 mb-6">
+                Sites modernos, responsivos e otimizados para todos os
+                dispositivos.
+              </p>
+
+              <div class="space-y-3 text-left">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Landing Pages: R$ 500-800</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Sites Institucionais: R$ 1.200-2.500</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>E-commerce: R$ 2.500-4.000</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Sistemas Web: R$ 3.000-4.000+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Automação Python -->
+          <div class="service-card bg-gray-800 p-8 rounded-xl">
+            <div class="text-center">
+              <i class="fab fa-python text-4xl text-yellow-400 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Automação Python</h3>
+              <div
+                class="price-tag text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block"
+              >
+                R$ 120 - R$ 350
+              </div>
+              <p class="text-gray-300 mb-6">
+                Scripts personalizados para automatizar tarefas e processos
+                empresariais.
+              </p>
+
+              <div class="space-y-3 text-left">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Organização de Arquivos: R$ 200-400</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Web Scraping: R$ 400-800</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Relatórios Automáticos: R$ 600-1.000</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Integração APIs: R$ 800-1.500</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formatação & Hardware -->
+          <div class="service-card bg-gray-800 p-8 rounded-xl">
+            <div class="text-center">
+              <i class="fas fa-desktop text-4xl text-green-400 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Formatação & Hardware</h3>
+              <div
+                class="price-tag text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block"
+              >
+                R$ 25 - R$ 55
+              </div>
+              <p class="text-gray-300 mb-6">
+                Manutenção, formatação e otimização de computadores e notebooks.
+              </p>
+
+              <div class="space-y-3 text-left">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Formatação Completa: R$ 50-80</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Instalação de Programas: R$ 30-60</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Limpeza e Manutenção: R$ 40-70</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Upgrade Hardware: R$ 60-150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Consultoria Tech -->
+          <div class="service-card bg-gray-800 p-8 rounded-xl">
+            <div class="text-center">
+              <i class="fas fa-users text-4xl text-purple-400 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Consultoria Tech</h3>
+              <div
+                class="price-tag text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block"
+              >
+                R$ 40 - R$ 80/h
+              </div>
+              <p class="text-gray-300 mb-6">
+                Orientação estratégica em tecnologia e transformação digital.
+              </p>
+
+              <div class="space-y-3 text-left">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Análise de Necessidades</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Planejamento de Projetos</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Escolha de Tecnologias</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Estratégia Digital</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Suporte Técnico -->
+          <div class="service-card bg-gray-800 p-8 rounded-xl">
+            <div class="text-center">
+              <i class="fas fa-tools text-4xl text-orange-400 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Suporte Técnico</h3>
+              <div
+                class="price-tag text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block"
+              >
+                R$ 35 - R$ 80
+              </div>
+              <p class="text-gray-300 mb-6">
+                Assistência técnica remota e presencial para resolver problemas.
+              </p>
+
+              <div class="space-y-3 text-left">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Suporte Remoto: R$ 50-80</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Visita Técnica: R$ 80-120</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Diagnóstico Completo</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Garantia 30 dias</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Treinamentos -->
+          <div class="service-card bg-gray-800 p-8 rounded-xl">
+            <div class="text-center">
+              <i class="fas fa-graduation-cap text-4xl text-pink-400 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Treinamentos</h3>
+              <div
+                class="price-tag text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block"
+              >
+                R$ 60 - R$ 180
+              </div>
+              <p class="text-gray-300 mb-6">
+                Capacitação personalizada em tecnologia e ferramentas digitais.
+              </p>
+
+              <div class="space-y-3 text-left">
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Informática Básica: R$ 100-150</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Ferramentas Online: R$ 120-200</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Programação Iniciante: R$ 200-300</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-check text-green-400 mr-3"></i>
+                  <span>Material Incluso</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
+    <!-- Calculator Section -->
+    <section id="calculadora" class="py-16 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">
+          <span class="gradient-text">Calculadora de Preços</span>
+        </h2>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="calculator-card p-8 rounded-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-2xl font-bold mb-6">Selecione o Serviço</h3>
+
+                <div class="space-y-4">
+                  <div class="bg-gray-700 p-4 rounded-lg">
+                    <label class="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="servico"
+                        value="web"
+                        class="mr-3"
+                      />
+                      <div class="flex-1">
+                        <div class="font-bold">Desenvolvimento Web</div>
+                        <select
+                          id="webTipo"
+                          class="w-full mt-2 bg-gray-600 p-2 rounded"
+                          disabled
+                        >
+                          <option value="150">Landing Page - R$ 150</option>
+                          <option value="250">Site Básico - R$ 250</option>
+                          <option value="400">
+                            Site Institucional - R$ 400
+                          </option>
+                          <option value="600">E-commerce - R$ 600</option>
+                          <option value="800">Sistema Web - R$ 800</option>
+                        </select>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="bg-gray-700 p-4 rounded-lg">
+                    <label class="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="servico"
+                        value="python"
+                        class="mr-3"
+                      />
+                      <div class="flex-1">
+                        <div class="font-bold">Automação Python</div>
+                        <select
+                          id="pythonTipo"
+                          class="w-full mt-2 bg-gray-600 p-2 rounded"
+                          disabled
+                        >
+                          <option value="120">
+                            Organização Arquivos - R$ 120
+                          </option>
+                          <option value="200">Web Scraping - R$ 200</option>
+                          <option value="280">Relatórios - R$ 280</option>
+                          <option value="350">Integração API - R$ 350</option>
+                        </select>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="bg-gray-700 p-4 rounded-lg">
+                    <label class="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="servico"
+                        value="formatacao"
+                        class="mr-3"
+                      />
+                      <div class="flex-1">
+                        <div class="font-bold">Formatação & Hardware</div>
+                        <select
+                          id="formatacaoTipo"
+                          class="w-full mt-2 bg-gray-600 p-2 rounded"
+                          disabled
+                        >
+                          <option value="35">
+                            Formatação Completa - R$ 35
+                          </option>
+                          <option value="25">
+                            Instalação Programas - R$ 25
+                          </option>
+                          <option value="30">Limpeza PC - R$ 30</option>
+                          <option value="55">Upgrade Hardware - R$ 55</option>
+                        </select>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="bg-gray-700 p-4 rounded-lg">
+                    <label class="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="servico"
+                        value="suporte"
+                        class="mr-3"
+                      />
+                      <div class="flex-1">
+                        <div class="font-bold">Suporte Técnico</div>
+                        <select
+                          id="suporteTipo"
+                          class="w-full mt-2 bg-gray-600 p-2 rounded"
+                          disabled
+                        >
+                          <option value="65">Suporte Remoto - R$ 65</option>
+                          <option value="100">Visita Técnica - R$ 100</option>
+                          <option value="80">Diagnóstico - R$ 80</option>
+                        </select>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="mt-6">
+                  <h4 class="font-bold mb-3">Opcionais</h4>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" id="urgente" class="mr-2" />
+                      <span>Entrega Urgente (+30%)</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" id="manutencao" class="mr-2" />
+                      <span>Manutenção 6 meses (+R$ 200)</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" id="treinamento" class="mr-2" />
+                      <span>Treinamento incluído (+R$ 150)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-bold mb-6">Resumo do Orçamento</h3>
+
+                <div class="bg-gray-700 p-6 rounded-lg">
+                  <div id="orcamento-detalhes" class="space-y-3">
+                    <div class="text-gray-400">
+                      Selecione um serviço para ver o orçamento
+                    </div>
+                  </div>
+
+                  <div class="border-t border-gray-600 mt-6 pt-6">
+                    <div class="text-2xl font-bold text-green-400">
+                      Total: <span id="total-preco">R$ 0,00</span>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 space-y-3">
+                    <button
+                      onclick="enviarOrcamento()"
+                      class="w-full bg-green-500 hover:bg-green-600 py-3 rounded-lg font-bold transition-all"
+                    >
+                      <i class="fab fa-whatsapp mr-2"></i>Solicitar via WhatsApp
+                    </button>
+                    <button
+                      onclick="calcularNovamente()"
+                      class="w-full bg-blue-500 hover:bg-blue-600 py-3 rounded-lg font-bold transition-all"
+                    >
+                      <i class="fas fa-redo mr-2"></i>Calcular Novamente
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Highlights -->
+    <section class="py-16">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">
+          <span class="gradient-text">Projetos Realizados</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center"
+            >
+              <i class="fas fa-desktop text-6xl text-white"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">DeiviTech Formatação</h3>
+              <p class="text-gray-300 mb-4">
+                Site completo com carrinho inteligente, análise IA e 5 páginas
+                funcionais.
+              </p>
+              <a
+                href="https://deivisan.github.io/DeiviTech-Formatacao/"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300"
+              >
+                Ver Projeto <i class="fas fa-external-link-alt ml-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center"
+            >
+              <i class="fas fa-laptop text-6xl text-white"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Configurador Notebook</h3>
+              <p class="text-gray-300 mb-4">
+                Sistema interativo com calculadora de preços e configurações
+                dinâmicas.
+              </p>
+              <a
+                href="https://deivisan.github.io/DeiviTech-Monte-Seu-Notebook/"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300"
+              >
+                Ver Projeto <i class="fas fa-external-link-alt ml-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center"
+            >
+              <i class="fas fa-robot text-6xl text-white"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Automações Python</h3>
+              <p class="text-gray-300 mb-4">
+                Scripts personalizados para organização, relatórios e web
+                scraping.
+              </p>
+              <a
+                href="https://github.com/deivisan/automation-scripts"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300"
+              >
+                Ver Repositório <i class="fas fa-external-link-alt ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">
+          <span class="gradient-text">Como Trabalhamos</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-comments text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">1. Conversa Inicial</h3>
+            <p class="text-gray-300">
+              Entendemos suas necessidades e objetivos do projeto.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-calculator text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">2. Orçamento</h3>
+            <p class="text-gray-300">
+              Apresentamos proposta detalhada com valores transparentes.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-code text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">3. Desenvolvimento</h3>
+            <p class="text-gray-300">
+              Criamos a solução com atualizações constantes do progresso.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-rocket text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">4. Entrega</h3>
+            <p class="text-gray-300">
+              Projeto finalizado com documentação e suporte incluso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-8">
+            <span class="gradient-text">Pronto para começar?</span>
+          </h2>
+          <p class="text-xl text-gray-300 mb-12">
+            Entre em contato agora e transforme sua ideia em realidade digital!
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <a
+              href="https://wa.me/5575981231019?text=Olá! Gostaria de um orçamento para desenvolvimento web."
+              target="_blank"
+              class="bg-green-500 hover:bg-green-600 p-6 rounded-xl transition-all"
+            >
+              <i class="fab fa-whatsapp text-3xl mb-3"></i>
+              <div class="font-bold">WhatsApp</div>
+              <div class="text-sm opacity-90">Resposta rápida</div>
+            </a>
+
+            <a
+              href="mailto:deivilsantana@outlook.com?subject=Orçamento FreelancerDeiviTech"
+              class="bg-blue-500 hover:bg-blue-600 p-6 rounded-xl transition-all"
+            >
+              <i class="fas fa-envelope text-3xl mb-3"></i>
+              <div class="font-bold">Email</div>
+              <div class="text-sm opacity-90">Propostas detalhadas</div>
+            </a>
+
+            <a
+              href="https://linkedin.com/in/deivisonlsantana"
+              target="_blank"
+              class="bg-blue-700 hover:bg-blue-800 p-6 rounded-xl transition-all"
+            >
+              <i class="fab fa-linkedin text-3xl mb-3"></i>
+              <div class="font-bold">LinkedIn</div>
+              <div class="text-sm opacity-90">Rede profissional</div>
+            </a>
+          </div>
+
+          <div class="bg-gray-800 p-8 rounded-xl">
+            <h3 class="text-2xl font-bold mb-4">Garantias Incluídas</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="flex items-center">
+                <i class="fas fa-shield-alt text-green-400 text-2xl mr-3"></i>
+                <span>Garantia 30 dias</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-headset text-blue-400 text-2xl mr-3"></i>
+                <span>Suporte pós-entrega</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-redo text-purple-400 text-2xl mr-3"></i>
+                <span>Revisões ilimitadas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-700">
+      <div class="container mx-auto px-6 text-center">
+        <div class="mb-6">
+          <h3 class="text-xl font-bold mb-4">FreelancerDeiviTech</h3>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Transformando ideias em soluções digitais através de tecnologia
+            moderna, desenvolvimento eficiente e foco na satisfação do cliente.
+          </p>
+        </div>
+
+        <div class="flex justify-center space-x-6 mb-6">
+          <a
+            href="https://github.com/deivisan"
+            target="_blank"
+            class="text-gray-400 hover:text-white"
+          >
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/deivisonlsantana"
+            target="_blank"
+            class="text-gray-400 hover:text-white"
+          >
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a
+            href="https://wa.me/5575981231019"
+            target="_blank"
+            class="text-gray-400 hover:text-white"
+          >
+            <i class="fab fa-whatsapp text-xl"></i>
+          </a>
+        </div>
+
+        <div class="text-gray-400">
+          <p>&copy; 2025 FreelancerDeiviTech. Todos os direitos reservados.</p>
+          <p class="mt-2">
+            Feito com ❤️ e muito ☕ •
+            <a href="../" class="text-blue-400 hover:text-blue-300"
+              >Portfolio Principal</a
+            >
+            •
+            <a
+              href="../Filantropia/"
+              class="text-green-400 hover:text-green-300"
+              >Projetos Gratuitos</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <script>
-        console.log('FreelancerDeiviTech - Site carregado com sucesso! 🚀');
+      let orcamentoAtual = {
+        servico: "",
+        tipo: "",
+        preco: 0,
+        urgente: false,
+        manutencao: false,
+        treinamento: false,
+        total: 0,
+      };
+
+      // Habilitar/desabilitar selects
+      document.querySelectorAll('input[name="servico"]').forEach((radio) => {
+        radio.addEventListener("change", function () {
+          // Desabilitar todos os selects
+          document.querySelectorAll("select").forEach((select) => {
+            select.disabled = true;
+          });
+
+          // Habilitar o select correspondente
+          if (this.checked) {
+            const selectId = this.value + "Tipo";
+            document.getElementById(selectId).disabled = false;
+            orcamentoAtual.servico = this.value;
+            calcularOrcamento();
+          }
+        });
+      });
+
+      // Listeners para os selects
+      document.querySelectorAll("select").forEach((select) => {
+        select.addEventListener("change", calcularOrcamento);
+      });
+
+      // Listeners para os checkboxes
+      document
+        .querySelectorAll('input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.addEventListener("change", calcularOrcamento);
+        });
+
+      function calcularOrcamento() {
+        if (!orcamentoAtual.servico) return;
+
+        const selectId = orcamentoAtual.servico + "Tipo";
+        const select = document.getElementById(selectId);
+
+        if (select && !select.disabled) {
+          orcamentoAtual.preco = parseInt(select.value);
+          orcamentoAtual.tipo = select.options[select.selectedIndex].text;
+        }
+
+        // Calcular adicionais
+        orcamentoAtual.urgente = document.getElementById("urgente").checked;
+        orcamentoAtual.manutencao =
+          document.getElementById("manutencao").checked;
+        orcamentoAtual.treinamento =
+          document.getElementById("treinamento").checked;
+
+        let total = orcamentoAtual.preco;
+
+        // Adicionar custos extras
+        if (orcamentoAtual.urgente) {
+          total += orcamentoAtual.preco * 0.3;
+        }
+        if (orcamentoAtual.manutencao) {
+          total += 200;
+        }
+        if (orcamentoAtual.treinamento) {
+          total += 150;
+        }
+
+        orcamentoAtual.total = total;
+
+        // Atualizar interface
+        atualizarResumoOrcamento();
+      }
+
+      function atualizarResumoOrcamento() {
+        const detalhesDiv = document.getElementById("orcamento-detalhes");
+        const totalSpan = document.getElementById("total-preco");
+
+        if (orcamentoAtual.preco === 0) {
+          detalhesDiv.innerHTML =
+            '<div class="text-gray-400">Selecione um serviço para ver o orçamento</div>';
+          totalSpan.textContent = "R$ 0,00";
+          return;
+        }
+
+        let html = `
+                <div class="flex justify-between">
+                    <span>${orcamentoAtual.tipo}</span>
+                    <span>R$ ${orcamentoAtual.preco
+                      .toFixed(2)
+                      .replace(".", ",")}</span>
+                </div>
+            `;
+
+        if (orcamentoAtual.urgente) {
+          const valorUrgente = orcamentoAtual.preco * 0.3;
+          html += `
+                    <div class="flex justify-between text-yellow-400">
+                        <span>Entrega Urgente (+30%)</span>
+                        <span>R$ ${valorUrgente
+                          .toFixed(2)
+                          .replace(".", ",")}</span>
+                    </div>
+                `;
+        }
+
+        if (orcamentoAtual.manutencao) {
+          html += `
+                    <div class="flex justify-between text-blue-400">
+                        <span>Manutenção 6 meses</span>
+                        <span>R$ 200,00</span>
+                    </div>
+                `;
+        }
+
+        if (orcamentoAtual.treinamento) {
+          html += `
+                    <div class="flex justify-between text-green-400">
+                        <span>Treinamento incluído</span>
+                        <span>R$ 150,00</span>
+                    </div>
+                `;
+        }
+
+        detalhesDiv.innerHTML = html;
+        totalSpan.textContent = `R$ ${orcamentoAtual.total
+          .toFixed(2)
+          .replace(".", ",")}`;
+      }
+
+      function enviarOrcamento() {
+        if (orcamentoAtual.total === 0) {
+          alert("Selecione um serviço primeiro!");
+          return;
+        }
+
+        let mensagem = `Olá! Gostaria de um orçamento:\n\n`;
+        mensagem += `📋 Serviço: ${orcamentoAtual.tipo}\n`;
+        mensagem += `💰 Valor Base: R$ ${orcamentoAtual.preco
+          .toFixed(2)
+          .replace(".", ",")}\n`;
+
+        if (orcamentoAtual.urgente) {
+          mensagem += `⚡ Entrega Urgente: +30%\n`;
+        }
+        if (orcamentoAtual.manutencao) {
+          mensagem += `🔧 Manutenção 6 meses: +R$ 200,00\n`;
+        }
+        if (orcamentoAtual.treinamento) {
+          mensagem += `📚 Treinamento incluído: +R$ 150,00\n`;
+        }
+
+        mensagem += `\n💎 TOTAL: R$ ${orcamentoAtual.total
+          .toFixed(2)
+          .replace(".", ",")}\n\n`;
+        mensagem += `Quando podemos conversar sobre os detalhes?`;
+
+        const url = `https://wa.me/5575981231019?text=${encodeURIComponent(
+          mensagem
+        )}`;
+        window.open(url, "_blank");
+      }
+
+      function calcularNovamente() {
+        // Resetar formulário
+        document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+          radio.checked = false;
+        });
+        document
+          .querySelectorAll('input[type="checkbox"]')
+          .forEach((checkbox) => {
+            checkbox.checked = false;
+          });
+        document.querySelectorAll("select").forEach((select) => {
+          select.disabled = true;
+        });
+
+        // Resetar objeto
+        orcamentoAtual = {
+          servico: "",
+          tipo: "",
+          preco: 0,
+          urgente: false,
+          manutencao: false,
+          treinamento: false,
+          total: 0,
+        };
+
+        atualizarResumoOrcamento();
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
-<- Status real de cada GitHub Pages Deploy seg 07 jul 2025 10:44:00 -03 -->
-
-
-<- Status real de cada GitHub Pages Active - seg 07 jul 2025 10:44:57 -03 -->

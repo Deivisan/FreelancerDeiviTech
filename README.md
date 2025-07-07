@@ -22,14 +22,14 @@ Site profissional de serviços freelancer em tecnologia, desenvolvimento web, au
 
 ### 💼 Serviços Oferecidos
 
-| Categoria                 | Descrição                     |
-| ------------------------- | ----------------------------- |
-| **Desenvolvimento Web**   | Sites modernos e responsivos  |
-| **Automação Python**      | Scripts personalizados        |
-| **Formatação & Hardware** | Manutenção e otimização       |
-| **Consultoria Tech**      | Orientação estratégica        |
-| **Suporte Técnico**       | Assistência remota/presencial |
-| **Treinamentos**          | Capacitação personalizada     |
+| Categoria                 | Descrição                                                |
+| ------------------------- | -------------------------------------------------------- |
+| **Desenvolvimento Web**   | Sites modernos e responsivos - Consulte valores no site  |
+| **Automação Python**      | Scripts personalizados - Consulte valores no site        |
+| **Formatação & Hardware** | Manutenção e otimização - Consulte valores no site       |
+| **Consultoria Tech**      | Orientação estratégica - Consulte valores no site        |
+| **Suporte Técnico**       | Assistência remota/presencial - Consulte valores no site |
+| **Treinamentos**          | Capacitação personalizada - Consulte valores no site     |
 
 ### 🎨 Portfolio Integrado
 - Links para projetos reais funcionais
