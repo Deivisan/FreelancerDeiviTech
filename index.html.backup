@@ -595,6 +595,7 @@
     </footer>
 
     <script>
+      let orcamentoAtual = {
         servico: "",
         tipo: "",
         preco: 0,
@@ -616,38 +617,56 @@
           if (this.checked) {
             const selectId = this.value + "Tipo";
             document.getElementById(selectId).disabled = false;
+            orcamentoAtual.servico = this.value;
+            calcularOrcamento();
           }
         });
       });
 
       // Listeners para os selects
       document.querySelectorAll("select").forEach((select) => {
+        select.addEventListener("change", calcularOrcamento);
       });
 
       // Listeners para os checkboxes
       document
         .querySelectorAll('input[type="checkbox"]')
         .forEach((checkbox) => {
+          checkbox.addEventListener("change", calcularOrcamento);
         });
 
+      function calcularOrcamento() {
+        if (!orcamentoAtual.servico) return;
 
+        const selectId = orcamentoAtual.servico + "Tipo";
         const select = document.getElementById(selectId);
 
         if (select && !select.disabled) {
+          orcamentoAtual.preco = parseInt(select.value);
+          orcamentoAtual.tipo = select.options[select.selectedIndex].text;
         }
 
         // Calcular adicionais
+        orcamentoAtual.urgente = document.getElementById("urgente").checked;
+        orcamentoAtual.manutencao =
           document.getElementById("manutencao").checked;
+        orcamentoAtual.treinamento =
           document.getElementById("treinamento").checked;
 
+        let total = orcamentoAtual.preco;
 
         // Adicionar custos extras
+        if (orcamentoAtual.urgente) {
+          total += orcamentoAtual.preco * 0.3;
         }
+        if (orcamentoAtual.manutencao) {
           total += 200;
         }
+        if (orcamentoAtual.treinamento) {
           total += 150;
         }
 
+        orcamentoAtual.total = total;
 
         // Atualizar interface
         atualizarResumoOrcamento();
@@ -657,6 +676,7 @@
         const detalhesDiv = document.getElementById("orcamento-detalhes");
         const totalSpan = document.getElementById("total-preco");
 
+        if (orcamentoAtual.preco === 0) {
           detalhesDiv.innerHTML =
             '<div class="text-gray-400">Selecione um serviço para ver o orçamento</div>';
           totalSpan.textContent = "R$ 0,00";
@@ -665,11 +685,15 @@
 
         let html = `
                 <div class="flex justify-between">
+                    <span>${orcamentoAtual.tipo}</span>
+                    <span>R$ ${orcamentoAtual.preco
                       .toFixed(2)
                       .replace(".", ",")}</span>
                 </div>
             `;
 
+        if (orcamentoAtual.urgente) {
+          const valorUrgente = orcamentoAtual.preco * 0.3;
           html += `
                     <div class="flex justify-between text-yellow-400">
                         <span>Entrega Urgente (+30%)</span>
@@ -680,6 +704,7 @@
                 `;
         }
 
+        if (orcamentoAtual.manutencao) {
           html += `
                     <div class="flex justify-between text-blue-400">
                         <span>Manutenção 6 meses</span>
@@ -688,6 +713,7 @@
                 `;
         }
 
+        if (orcamentoAtual.treinamento) {
           html += `
                     <div class="flex justify-between text-green-400">
                         <span>Treinamento incluído</span>
@@ -697,25 +723,34 @@
         }
 
         detalhesDiv.innerHTML = html;
+        totalSpan.textContent = `R$ ${orcamentoAtual.total
           .toFixed(2)
           .replace(".", ",")}`;
       }
 
+      function enviarOrcamento() {
+        if (orcamentoAtual.total === 0) {
           alert("Selecione um serviço primeiro!");
           return;
         }
 
         let mensagem = `Olá! Gostaria de um orçamento:\n\n`;
+        mensagem += `📋 Serviço: ${orcamentoAtual.tipo}\n`;
+        mensagem += `💰 Valor Base: R$ ${orcamentoAtual.preco
           .toFixed(2)
           .replace(".", ",")}\n`;
 
+        if (orcamentoAtual.urgente) {
           mensagem += `⚡ Entrega Urgente: +30%\n`;
         }
+        if (orcamentoAtual.manutencao) {
           mensagem += `🔧 Manutenção 6 meses: +R$ 200,00\n`;
         }
+        if (orcamentoAtual.treinamento) {
           mensagem += `📚 Treinamento incluído: +R$ 150,00\n`;
         }
 
+        mensagem += `\n💎 TOTAL: R$ ${orcamentoAtual.total
           .toFixed(2)
           .replace(".", ",")}\n\n`;
         mensagem += `Quando podemos conversar sobre os detalhes?`;
@@ -726,6 +761,7 @@
         window.open(url, "_blank");
       }
 
+      function calcularNovamente() {
         // Resetar formulário
         document.querySelectorAll('input[type="radio"]').forEach((radio) => {
           radio.checked = false;
@@ -740,6 +776,7 @@
         });
 
         // Resetar objeto
+        orcamentoAtual = {
           servico: "",
           tipo: "",
           preco: 0,
